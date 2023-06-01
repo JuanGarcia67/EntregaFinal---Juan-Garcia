@@ -1,4 +1,4 @@
-function calcular_descuentotarjeta (monto , tarjetas){
+/*function calcular_descuentotarjeta (monto , tarjetas){
 
 let descuentotarjeta = 0;
     
@@ -62,7 +62,138 @@ let total_dos = calcular_interescuotas(monto, cuotas);
 
 let total = total_dos - total_uno;
 
-mostrar_datos_compra(monto, tarjetas, cuotas, total);
+mostrar_datos_compra(monto, tarjetas, cuotas, total);*/
 
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+function compra_calzado (){
+    let ingreso_modelo = prompt("Ingresar modelo: Venecia, Roma, Berlin, Amsterdam, Milan, Madrid, Budapest, Londres, Paris, Miami, California, Lisboa, Praga, Munich, Buenos");
+    let cantidad = prompt("Ingrese cantidad")
+    lista_objetos.forEach((item)=>{
+        if (item.modelo == ingreso_modelo){
+            if (item.stock >= cantidad){   
+                item.stock = item.stock - parseInt(cantidad)
+                console.log("Gracias por tu compra! Espero que los disfrutes! <3");
+            }else{
+                console.log("No hay stock suficiente, solo quedan ", item.stock);
+            }
+        }
+    })
+}
+
+function fabricacion_faltastock (obj_lista) {
+    return obj_lista.stock <= 2 
+}
+
+class Cliente {
+    constructor(nombre,apellido,edad,email,telefono){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.email = email;
+        this.telefono = telefono;
+    }
+}
+
+let lista_clientes = [];
+
+for (let i=0 ; i<3 ; i++){
+
+    let nombre = prompt("Ingrese su nombre");
+    let apellido = prompt("Ingrese su apellido");
+    let edad = prompt("Ingrese su edad");
+    let email = prompt("Ingrese su email");
+    let telefono = prompt("Ingrese su telefono")
+
+    let nuevo_cliente = new Cliente (nombre,apellido,edad,email,telefono);
+
+    lista_clientes.push(nuevo_cliente)
+}
+
+class Modelo {
+    
+    constructor(modelo,precio,stock){
+        this.modelo = modelo;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    get_datos(){
+        console.log("<----------DATOS DEL PRODUCTO----------->");
+        console.log("Modelo: ", this.modelo);
+        console.log("Precio: ", this.precio);
+        console.log("Stock: ", this.stock);
+        console.log("");
+    }
+    get_stock(){
+        if (this.stock > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+}
+
+let modelo_uno = new Modelo ("Venecia", 6500, 1);
+let modelo_dos = new Modelo ("Roma", 7900, 5);
+let modelo_tres = new Modelo ("Berlin", 5800, 4);
+let modelo_cuatro = new Modelo ("Amsterdam", 6570, 10);
+let modelo_cinco = new Modelo ("Milan", 6800, 3);
+let modelo_seis = new Modelo ("Madrid", 5500, 3);
+let modelo_siete = new Modelo ("Budapest", 8500, 1);
+let modelo_ocho = new Modelo ("Londres", 9500, 0);
+let modelo_nueve = new Modelo ("Paris", 6900, 2);
+let modelo_diez = new Modelo ("Miami", 8700, 7);
+let modelo_once = new Modelo ("California", 11200, 1);
+let modelo_doce = new Modelo ("Lisboa", 10200, 3);
+let modelo_trece = new Modelo ("Praga", 9700, 5);
+let modelo_catorce = new Modelo ("Munich", 8500, 4);
+let modelo_quince = new Modelo ("Buenos Aires", 5700, 6);
+let lista_objetos = [
+    modelo_uno,
+    modelo_dos,
+    modelo_tres,
+    modelo_cuatro,
+    modelo_cinco,
+    modelo_seis,
+    modelo_siete,
+    modelo_ocho,
+    modelo_nueve,
+    modelo_diez,
+    modelo_once,
+    modelo_doce,
+    modelo_trece,
+    modelo_catorce,
+    modelo_quince
+];
+
+console.log(modelo_uno);
+
+modelo_uno.get_datos();
+modelo_dos.get_datos();
+modelo_tres.get_datos();
+modelo_cuatro.get_datos();
+modelo_cinco.get_datos();
+modelo_seis.get_datos();
+modelo_siete.get_datos();
+modelo_ocho.get_datos();
+modelo_nueve.get_datos();
+modelo_diez.get_datos();
+modelo_once.get_datos();
+modelo_doce.get_datos();
+modelo_trece.get_datos();
+modelo_catorce.get_datos();
+modelo_quince.get_datos();
+
+console.log("<----------LISTA DE CLIENTES----------->");
+console.log(lista_clientes);
+
+compra_calzado();
+console.log("<----------LISTA ACTUALIZADA----------->");
+console.log(lista_objetos);
+
+let modelos_fabricar = lista_objetos.filter(fabricacion_faltastock);
+console.log("<----------MODELOS A FABRICAR----------->");
+console.log(modelos_fabricar);
