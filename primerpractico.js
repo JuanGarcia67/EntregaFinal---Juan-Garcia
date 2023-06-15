@@ -47,27 +47,11 @@ function mostrar_datos_compra(monto, tarjetas, cuotas, total) {
     console.log("Con la tarjeta: ", tarjetas);
     console.log("En cuotas: ", cuotas);
     console.log("El costo final de tu compra: ", total);
-}
-
-console.log("Bienvenidos a Narciza");
-let monto = prompt("Ingrese el monto del producto seleccionado");
-monto = parseInt(monto);
-
-let tarjetas = prompt("Ingrese el tipo de tarjeta que posee: BBVA, Santander, Scotiabank o Itau")
-let total_uno = calcular_descuentotarjeta(monto, tarjetas);
-
-
-let cuotas = prompt("En cuantas cuotas: 1, 3, 6 o 12")
-let total_dos = calcular_interescuotas(monto, cuotas);
-
-let total = total_dos - total_uno;
-
-mostrar_datos_compra(monto, tarjetas, cuotas, total);*/
-
+}*/
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-function compra_calzado (){
+/*function compra_calzado (){
     let ingreso_modelo = prompt("Ingresar modelo: Venecia, Roma, Berlin, Amsterdam, Milan, Madrid, Budapest, Londres, Paris, Miami, California, Lisboa, Praga, Munich, Buenos");
     let cantidad = prompt("Ingrese cantidad")
     lista_objetos.forEach((item)=>{
@@ -196,4 +180,161 @@ console.log(lista_objetos);
 
 let modelos_fabricar = lista_objetos.filter(fabricacion_faltastock);
 console.log("<----------MODELOS A FABRICAR----------->");
-console.log(modelos_fabricar);
+console.log(modelos_fabricar);*/
+
+/*<-------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/*console.log("Bienvenidos a Narciza");
+let monto = prompt("Ingrese el monto del producto seleccionado");
+monto = parseInt(monto);
+
+let tarjetas = prompt("Ingrese el tipo de tarjeta que posee: BBVA, Santander, Scotiabank o Itau")
+let total_uno = calcular_descuentotarjeta(monto, tarjetas);
+
+
+let cuotas = prompt("En cuantas cuotas: 1, 3, 6 o 12")
+let total_dos = calcular_interescuotas(monto, cuotas);
+
+let total = total_dos - total_uno;
+
+mostrar_datos_compra(monto, tarjetas, cuotas, total);*/
+
+/*<---------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+let carrito = [];
+
+function agregar_a_carrito(e){
+
+    let hijo = e.target;
+    let padre = hijo.parentNode;
+    let abuelo = padre.parentNode
+
+    let nombre_producto = padre.querySelector("h5").textContent;
+
+    let precio_producto = padre.querySelector("span").textContent;
+
+    let img_producto = abuelo.querySelector("img").src;
+
+    let producto = {
+        nombre: nombre_producto,
+        precio: precio_producto,
+        img: img_producto,
+        cantidad:1
+    };
+
+    carrito.push(producto);
+
+    console.log(carrito);
+
+    mostrar_carrito();
+
+}
+
+
+function mostrar_carrito(){
+
+    let tabla = document.getElementById("tbody");
+    tabla.innerHTML = "";
+
+    for( let producto of carrito ){
+
+        let fila = document.createElement("tr");
+        fila.innerHTML = `<td><img src="${producto.img}"></td>
+                          <td><p>${producto.nombre}</p></td>
+                          <td>${producto.cantidad}</td>
+                          <td>${producto.precio}</td>
+                          <td><button class="btn btn-danger borrar_elemento">Borrar</button></td>`;
+        tabla.append(fila);
+
+    }
+
+
+    let btn_borrar = document.querySelectorAll(".borrar_elemento");
+    
+    for( let btn of btn_borrar ){
+
+        btn.addEventListener("click" , borrar_producto);
+    }
+
+}
+
+
+function borrar_producto(e){
+
+    console.log("BORRAR ESTE PRODUCTO: " , e.target);
+    let abuelo = e.target.parentNode.parentNode;
+
+    abuelo.remove();
+}
+
+
+let btn_compra =  document.querySelectorAll(".botonCompra");
+
+console.log(btn_compra);
+
+
+for( let boton of btn_compra){
+
+    boton.addEventListener("click" , agregar_a_carrito);
+}
+
+
+let btn_carrito = document.getElementById("mostrar_carrito");
+
+
+btn_carrito.addEventListener("click" , function(){
+
+    let carrito = document.getElementById("carrito");
+
+    if( carrito.style.display != "none"){
+
+        carrito.style.display = "none";
+    }
+    else{
+        carrito.style.display = "block";
+    }
+})
+
+/*<----------------------------------------------------------------------------------------------------------------------------------------->*/
+
+let modal = document.getElementById('modal_registro');
+
+let btn = document.getElementById('mostrar_registro');
+
+let span = document.getElementById('close_registro');
+
+btn.onclick = function() {
+  modal.style.display = 'block';
+};
+
+span.onclick = function() {
+  modal.style.display = 'none';
+};
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+};
+
+/*<----------------------------------------------------------------------------------------------------------------------------------------->*/
+
+let enviar_info = document.getElementById('enviar')
+
+enviar.onclick = function(e){
+    let nombre = document.getElementById('nombre').value;
+    let apellido = document.getElementById('apellido').value;
+    let email = document.getElementById('email').value;
+    let contrasenia = document.getElementById('contrasenia').value;
+    let telefono = document.getElementById('telefono').value;
+    let nacimiento = document.getElementById('nacimiento').value;
+
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("apellido", apellido);
+    localStorage.setItem("email", email);
+    localStorage.setItem("contrasenia", contrasenia);
+    localStorage.setItem("telefono", telefono);
+    localStorage.setItem("nacimiento", nacimiento);
+    modal.style.display = "none";
+}
+
