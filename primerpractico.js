@@ -251,31 +251,19 @@ function mostrar_carrito(){
 
     let btn_borrar = document.querySelectorAll(".borrar_elemento");
     
-    for( let btn of btn_borrar ){
-
-        btn.addEventListener("click" , borrar_producto);
-    }
-
+    btn_borrar.forEach((boton, index) => {
+        boton.addEventListener("click" , (e) => borrar_producto(e, index));
+    });
 }
 
 
-function borrar_producto(e){
+function borrar_producto(e, index){
 
     console.log("BORRAR ESTE PRODUCTO: " , e.target);
     let abuelo = e.target.parentNode.parentNode;
-
+    carrito.splice(index, 1);
     abuelo.remove();
-}
 
-
-let btn_compra =  document.querySelectorAll(".botonCompra");
-
-console.log(btn_compra);
-
-
-for( let boton of btn_compra){
-
-    boton.addEventListener("click" , agregar_a_carrito);
 }
 
 
@@ -338,3 +326,75 @@ enviar.onclick = function(e){
     modal.style.display = "none";
 }
 
+const loadValues = async  function () {
+    try {
+        const response = await fetch("http://localhost:3000/api/get_zapatos")
+        const data = await response.json();
+        console.log('vamooo', data);
+        mostrarZapatosEnPantalla(data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+function splitArrayIntoChunks(array, c) {
+    const chunks = [];
+    for (let i = 0; i < array.length; i += c) {
+      chunks.push(array.slice(i, i + c));
+    };
+    return chunks;
+}
+
+const mostrarZapatosEnPantalla = (lista_zapatos) => {
+    const contenedor = document.getElementById('listaProductos');
+    const rows = splitArrayIntoChunks(lista_zapatos, 3);
+    
+    rows.forEach((row) => {
+        const rowElement = document.createElement('div');
+        rowElement.classList.add('row');
+    
+        row.forEach((producto) => {
+            const colElement = document.createElement('div');
+            colElement.classList.add('col');
+            
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+            
+            const imageElement = document.createElement('img');
+            imageElement.src = producto.img;
+            imageElement.classList.add('card-img-top');
+            
+            const cardBodyElement = document.createElement('div');
+            cardBodyElement.classList.add('card-body');
+            
+            const titleElement = document.createElement('h5');
+            titleElement.classList.add('card-title');
+            titleElement.innerHTML = producto.nombre;
+
+            const precioElement = document.createElement('span');
+            precioElement.classList.add('precio');
+            precioElement.innerHTML = `$${producto.precio}`;
+            
+            const btnElement = document.createElement('a');
+            btnElement.classList.add('btn');
+            btnElement.classList.add('btn-primary');
+            btnElement.classList.add('botonCompra');
+            btnElement.innerHTML = "Comprar";
+            btnElement.addEventListener("click" , agregar_a_carrito);
+
+            cardBodyElement.appendChild(titleElement);
+            cardBodyElement.appendChild(precioElement);
+            cardBodyElement.appendChild(btnElement);
+
+            cardElement.appendChild(imageElement);
+            cardElement.appendChild(cardBodyElement);
+
+            colElement.appendChild(cardElement);
+
+            rowElement.appendChild(colElement);
+        });
+        contenedor.appendChild(rowElement);
+    });;
+};
+
+loadValues();

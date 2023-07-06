@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tokio",
+    "precio": 23.700687569198156,
+    "img": "calzado-1.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Londres",
+    "precio": 47.2967517633278,
+    "img": "calzado-2.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Nueva York",
+    "precio": 58.60421326103829,
+    "img": "calzado-3.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "París",
+    "precio": 32.605705429943974,
+    "img": "calzado-4.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Roma",
+    "precio": 51.209880709794646,
+    "img": "calzado-5.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Pekín",
+    "precio": 22.721197725720224,
+    "img": "calzado-6.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Estambul",
+    "precio": 88.74601068303957,
+    "img": "calzado-7.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Moscú",
+    "precio": 56.692959298848805,
+    "img": "calzado-8.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Dubái",
+    "precio": 22.017933461340906,
+    "img": "calzado-9.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Sídney",
+    "precio": 38.358967662840655,
+    "img": "calzado-10.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Toronto",
+    "precio": 98.59285144919347,
+    "img": "calzado-11.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Río de Janeiro",
+    "precio": 89.13807976952965,
+    "img": "calzado-12.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Cairo",
+    "precio": 33.542385589002336,
+    "img": "calzado-13.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Ciudad del Cabo",
+    "precio": 79.47900087533499,
+    "img": "calzado-14.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Berlín",
+    "precio": 61.36155193147147,
+    "img": "calzado-15.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Madrid",
+    "precio": 62.748400672162994,
+    "img": "calzado-16.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "Atenas",
+    "precio": 67.21219642147963,
+    "img": "calzado-17.jpg"
+  },
+  {
+    "id": 18,
+    "nombre": "Bangkok",
+    "precio": 22.84756745269288,
+    "img": "calzado-18.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Singapur",
+    "precio": 55.235366179841634,
+    "img": "calzado-19.jpg"
+  },
+  {
+    "id": 20,
+    "nombre": "Seúl",
+    "precio": 59.77036500810472,
+    "img": "calzado-20.jpg"
+  },
+  {
+    "id": 21,
+    "nombre": "México DF",
+    "precio": 65.76324097609654,
+    "img": "calzado-21.jpg"
+  },
+  {
+    "id": 22,
+    "nombre": "Buenos Aires",
+    "precio": 71.33064543606173,
+    "img": "calzado-22.jpg"
+  },
+  {
+    "id": 23,
+    "nombre": "Sao Paulo",
+    "precio": 46.356195300728785,
+    "img": "calzado-23.jpg"
+  },
+  {
+    "id": 24,
+    "nombre": "Delhi",
+    "precio": 76.31703630591616,
+    "img": "calzado-24.jpg"
+  },
+  {
+    "id": 25,
+    "nombre": "Mumbai",
+    "precio": 27.531566339566567,
+    "img": "calzado-25.jpg"
+}
+]
